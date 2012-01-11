@@ -1,5 +1,8 @@
 \#*
 build
+*.a
+*.o
+*.mexmaci64
 *.mode1v3
 *.pbxuser
 *.perspectivev3
