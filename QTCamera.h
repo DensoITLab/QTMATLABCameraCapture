@@ -42,7 +42,6 @@
 	int									_width;
 	int									_height;
     QtCameraPixelFormat                	_format;
-    int                 				_bufSize;
 }
 
 - (int)width;
