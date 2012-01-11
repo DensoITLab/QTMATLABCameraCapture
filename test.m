@@ -42,22 +42,36 @@
 % Other :same as default.
 % Note.Mode 2 and 4 is faster than others.
 
-mode = 3;
-width = 0;
-height = 0;
-
-%% create camera object
-camera = qtcamera_create(width, height, mode);
-
+width = 640;
+height = 480;
 frames = 100;
 
+%% test Y(WhiteIsZero) mode
+mode = 1;
+camera = qtcamera_create(width, height, mode);
 for i=1:frames
-	%% capture frame
     image = qtcamera_capture(camera);
     imshow(image);
-    title(sprintf('%d / %d',i,frames));
     pause(0.01);
 end
+qtcamera_release(camera);
 
-%% release camera object
+%% test RGB mode
+mode = 2;
+camera = qtcamera_create(width, height, mode);
+for i=1:frames
+    image = qtcamera_capture(camera);
+    imshow(image);
+    pause(0.01);
+end
+qtcamera_release(camera);
+
+%% test Y(Y from YUV420) mode
+mode = 3;
+camera = qtcamera_create(width, height, mode);
+for i=1:frames
+    image = qtcamera_capture(camera);
+    imshow(image);
+    pause(0.01);
+end
 qtcamera_release(camera);
