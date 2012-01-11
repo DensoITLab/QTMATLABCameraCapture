@@ -32,26 +32,32 @@
 %
 % width height
 % 0 for default size
+% You have to choice formal size, such as 1024x768, 320x240.
 %
 % mode 
 % 0: default(RGB)
-% 1: W*H--Y     (WhiteIsZero)
-% 2: W*H--RGB
-% 3: W*H--Y +   W/2*H/2--U    +   W/2*H/2--V
+% 1: Y(WhiteIsZero)
+% 2: RGB
+% 3: Y(Y from YUV420)
 % Other :same as default.
 % Note.Mode 2 and 4 is faster than others.
 
-mode=1;
-width=0;
-height=0;
-camera = qtcamera_create(width,height,mode);
+mode = 3;
+width = 0;
+height = 0;
 
-frames = 200;
+%% create camera object
+camera = qtcamera_create(width, height, mode);
+
+frames = 100;
 
 for i=1:frames
+	%% capture frame
     image = qtcamera_capture(camera);
     imshow(image);
     title(sprintf('%d / %d',i,frames));
     pause(0.01);
 end
+
+%% release camera object
 qtcamera_release(camera);
