@@ -1,5 +1,6 @@
 QTMATLABCameraCapture
 =======
+![](http://cvlab.jp/wp/wp-content/uploads/2012/01/capture_sample.png)
 
 Introduction and information
 =======
